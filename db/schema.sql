@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS fun_cms;
+
+CREATE DATABASE fun_cms;
