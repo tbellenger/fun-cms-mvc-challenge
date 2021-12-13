@@ -30,7 +30,7 @@ router.get("/", withAuth, (req, res) => {
     .then((dbPostData) => {
       console.log("rendering dashboard");
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("dashboard", { posts, loggedIn: true });
+      res.render("dashboard", { posts, loggedIn: true, isDashboard: true });
     })
     .catch((err) => {
       console.log(err);
@@ -58,6 +58,15 @@ router.get("/edit/:id", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       if (dbPostData) {
+        if (dbPostData.user.username != req.session.username) {
+          console.log(
+            "Attempt to delete other user post by " + req.session.username
+          );
+          res
+            .status(403)
+            .json({ message: "You cannot edit posts from other users" });
+          return;
+        }
         const post = dbPostData.get({ plain: true });
 
         res.render("edit-post", {
