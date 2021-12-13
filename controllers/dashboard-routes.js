@@ -28,9 +28,15 @@ router.get("/", withAuth, (req, res) => {
     ],
   })
     .then((dbPostData) => {
+      // render the dashboard by passing the posts, logged in and also that this is now the dashboard
       console.log("rendering dashboard");
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("dashboard", { posts, loggedIn: true, isDashboard: true });
+
+      res.render("dashboard", {
+        posts: posts.reverse(),
+        loggedIn: true,
+        isDashboard: true,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -58,6 +64,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
   })
     .then((dbPostData) => {
       if (dbPostData) {
+        // block attempt to edit a post that the user didn't create
         if (dbPostData.user.username != req.session.username) {
           console.log(
             "Attempt to delete other user post by " + req.session.username

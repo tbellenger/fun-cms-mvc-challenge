@@ -34,7 +34,8 @@ async function loginFormHandler(event) {
     if (response.ok) {
       document.location.replace("/dashboard/");
     } else {
-      showModal(response.statusText);
+      const json = await response.json();
+      showModal("<h3>" + response.statusText + "</h3>" + json.message);
       //alert(response.statusText);
     }
   }
@@ -59,7 +60,8 @@ async function signupFormHandler(event) {
     if (response.ok) {
       document.location.replace("/dashboard/");
     } else {
-      showModal(response.statusText);
+      const json = await response.json();
+      showModal("<h3>" + response.statusText + "</h3>" + json.message);
       //alert(response.statusText);
     }
   }

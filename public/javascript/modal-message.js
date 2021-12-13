@@ -5,7 +5,7 @@ const buttonOK = document.querySelector("#modalOk");
 buttonOK.addEventListener("click", hideModal);
 
 function showModal(message) {
-  modalMessage.innerText = `${message}`;
+  modalMessage.innerHTML = `${message}`;
   modal.classList.add("show");
 }
 
