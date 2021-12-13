@@ -8,11 +8,6 @@
 
       <label for="post-contents">Contents</label>
       <textarea id="post-contents" name="post-contents">{{post.post_contents}}</textarea>
-<div class="sub">
-      by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
     <div>
     <button class="btn" type="submit">Save edits</button>
     <button class="btn warn" type="button">Delete post</button>
@@ -21,7 +16,7 @@
 </article>
 
 <form class="comment-form">
-
+    <label>Comment</label>
     <textarea name="comment-body"></textarea>
 
 

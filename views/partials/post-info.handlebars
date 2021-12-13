@@ -1,9 +1,9 @@
 <article class="post">
   <div class="post-title">
-    <a class="nav-el" href="/post/{{id}}">{{title}}</a>
+    <a class="post-nav-el" href="/post/{{id}}">{{title}}</a>
     <div class="right">Posted by {{user.username}} on {{format_date created_at}}
       |
-      <a class="nav-el" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a></div>
+      <a class="post-nav-el" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a></div>
   </div>
   <div class="content">
     <p>{{post_contents}}</p>
