@@ -11,8 +11,8 @@ const userdata = [
     password: "password123",
   },
   {
-    username: "iboddam2",
-    password: "password123",
+    username: "tom",
+    password: "1234",
   },
   {
     username: "dstanmer3",
