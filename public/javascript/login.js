@@ -1,14 +1,17 @@
-const showSignup = document.querySelector("#show-signup");
-const showLogin = document.querySelector("#show-login");
+const toggleSignup = document.querySelector("#toggle-signup");
 
-showSignup.addEventListener("click", toggleLoginSignup);
-showLogin.addEventListener("click", toggleLoginSignup);
+toggleSignup.addEventListener("click", toggleLoginSignup);
 
 function toggleLoginSignup() {
   event.preventDefault();
 
   document.querySelector(".login-form").classList.toggle("hide");
   document.querySelector(".signup-form").classList.toggle("hide");
+
+  toggleSignup.innerText =
+    toggleSignup.innerText == "Sign up instead"
+      ? "Login instead"
+      : "Sign up instead";
 }
 
 async function loginFormHandler(event) {
@@ -25,8 +28,9 @@ async function loginFormHandler(event) {
         password,
       }),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
-
+    console.log(response.ok);
     if (response.ok) {
       document.location.replace("/dashboard/");
     } else {

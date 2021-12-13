@@ -50,16 +50,25 @@ router.get("/:id", (req, res) => {
 router.post("/", async (req, res) => {
   // expects {username: 'Lernantino', password: 'password1234'}
   try {
+    const exists = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+    if (exists) {
+      res.status(422).json({ message: "Username already exists" });
+      return;
+    }
     const user = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
-    req.session.save(() => {
-      req.session.user_id = user.id;
-      req.session.username = user.username;
-      req.session.loggedIn = true;
 
-      res.json(user);
+    req.session.user_id = user.id;
+    req.session.username = user.username;
+    req.session.loggedIn = true;
+    req.session.save(() => {
+      res.json({ user: user, message: "You are now logged in" });
     });
   } catch (err) {
     console.log(err);
@@ -86,11 +95,10 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-
+    req.session.user_id = dbUserData.id;
+    req.session.username = dbUserData.username;
+    req.session.loggedIn = true;
+    req.session.save(function (err) {
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
   });

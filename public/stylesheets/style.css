@@ -10,7 +10,7 @@ html {
   font-family: sans-serif;
   color: #333;
 }
-
+/* 
 a {
   text-decoration: none;
   color: #225ca3;
@@ -122,7 +122,7 @@ main {
 
 .delete-post-btn:hover {
   background-color: #ff643d;
-}
+} */
 
 .post {
   margin-bottom: 2%;
@@ -136,7 +136,7 @@ main {
   background: rgb(34, 16, 4);
   color: #e4f0e2;
 }
-
+/* 
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
@@ -167,7 +167,7 @@ main {
 
 .edit-post-form {
   margin-bottom: 5%;
-}
+} */
 
 .hide {
   display: none;
