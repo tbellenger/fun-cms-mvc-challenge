@@ -67,6 +67,28 @@ article {
   margin-bottom: 15px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 60px;
+}
+
+label {
+  font-weight: 600;
+}
+
 .post {
   background-color: white;
   color: black;
@@ -81,16 +103,59 @@ article {
   justify-content: space-between;
   align-items: center;
   height: 45px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding-left: 10px;
 }
 
-.post .post-title .right {
+.post .post-title .right,
+sub {
   margin-right: 5px;
   padding: 5px;
   font-size: 0.75rem;
+  font-weight: 300;
 }
 
 .post .content {
   padding: 10px;
+}
+
+.comments .comment {
+  margin-bottom: 10px;
+  background-color: rgb(221, 221, 221);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.comments .comment .meta {
+  font-weight: 600;
+}
+
+.comments .comment .text {
+  font-style: italic;
+}
+
+.btn {
+  padding: 5px 10px 5px 10px;
+  margin: 3px;
+  margin-bottom: 10px;
+  background-color: rgb(0, 134, 187);
+  color: white;
+  border: 3px solid rgb(0, 134, 187);
+  border-radius: 5px;
+}
+
+.btn.warn {
+  background-color: rgb(129, 0, 0);
+  border: 3px solid rgb(129, 0, 0);
+}
+
+.btn:hover {
+  border: 3px solid rgb(0, 62, 104);
+}
+
+.btn.warn:hover {
+  border: 3px solid rgb(85, 0, 0);
 }
 
 .hide {
