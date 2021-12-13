@@ -63,17 +63,34 @@ main {
   text-shadow: 2px 2px 1px grey;
 }
 
-.post {
-  margin-bottom: 2%;
-  line-height: 150%;
-  background-color: #e4f0e2;
-  color: rgb(34, 16, 4);
-  border: 2px solid rgb(34, 16, 4);
+article {
+  margin-bottom: 15px;
 }
 
-.post .title {
-  background: rgb(34, 16, 4);
-  color: #e4f0e2;
+.post {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.post .post-title {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+}
+
+.post .post-title .right {
+  margin-right: 5px;
+  padding: 5px;
+  font-size: 0.75rem;
+}
+
+.post .content {
+  padding: 10px;
 }
 
 .hide {
