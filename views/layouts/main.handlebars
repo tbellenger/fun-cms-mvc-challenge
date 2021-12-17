@@ -11,10 +11,10 @@
     <header>
       <nav>
         <a href="/" class="nav-el">Home</a>
-        {{#if loggedIn}}
-          {{#unless isDashboard}}
+        {{#unless isDashboard}}
             <a href="/dashboard" class="nav-el">Dashboard</a>
-          {{/unless}}
+        {{/unless}}
+        {{#if loggedIn}}
           <button id="logout" class="nav-el">Logout</button>
         {{else}}
           <a href="/login" class="nav-el">Login</a>
